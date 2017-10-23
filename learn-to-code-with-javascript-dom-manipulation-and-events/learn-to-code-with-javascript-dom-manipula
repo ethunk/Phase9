@@ -1,0 +1,151 @@
+### Introduction
+
+Responding to user actions by dynamically changing a webpage is the raw power
+that JavaScript brings to web development.
+
+In this article, we will explore the basics of **Event-Driven programming**, and
+how to change parts of a webpage in response to user interaction.
+
+
+### Learning Goals
+
+* Learn about the **Document Object Model** (**DOM**) and the `document` variable.
+* Select elements in the page with the `document.getElementById()` method.
+* Alter elements in the page via the `innerHTML` property.
+* Bind functions to user actions on page elements through **event listeners**.
+
+
+### Changing the Page
+
+The **DOM** is JavaScript's representation of a webpage. It is stored in a
+variable called the `document`. This gives us a way to access and alter HTML
+elements within the page. There are many methods defined on the `document`.
+However, we are going to focus on just one in this lesson: `getElementById`.
+
+Let's say we have an HTML document with the following `div` element.
+
+```no-highlight
+<!-- Step 1 -->
+<div id="hugh">
+  Resistance is futile.
+</div>
+```
+
+We can select this HTML element using some simple JavaScript.
+
+```no-highlight
+let borgDiv = document.getElementById('hugh');  // Step 2
+```
+
+We can then change the text within the HTML element by updating the `innerHTML`
+attribute.
+
+```no-highlight
+borgDiv.innerHTML = 'Reprogramming...';  // Step 3
+```
+
+We can even go as far as adding a list of items within this div.
+
+```no-highlight
+borgDiv.innerHTML += '<ul>';
+borgDiv.innerHTML += '  <li>Decoupling quantum locator</li>';
+borgDiv.innerHTML += '  <li>Erasing directives</li>';
+borgDiv.innerHTML += '  <li>Writing benevolent subprocesses</li>';
+borgDiv.innerHTML += '</ul>';
+```
+
+Via the `document` variable, we can change any part of the page we want, by
+following a simple formula:
+
+1. Assign a unique id to the HTML element we would like to interact with. (e.g.- `"hugh"`).
+2. Create a new variable to keep track of the HTML element. Assign that variable with the result of the `document.getElementById()` method.
+3. Alter the page by changing the `innerHTML` property of the variable created in Step 2.
+
+These steps make up the basics of **DOM Manipulation**.
+
+A couple of notes on this section:
+
+* The values of id attributes should be unique within a page. Nothing
+  catastrophic will happen if we violate this rule, but we would violate a basic
+  tenet of web development: **ids are unique**.
+* The `+=` (plus-equals) operator is a shortcut for the following.
+
+```no-highlight
+borgDiv.innerHTML = borgDiv.innerHTML + 'Reprogramming complete.';
+```
+
+
+### Action and Reaction
+
+When you click on a link, or tap on a button, click the "Close Window" div in a
+pop-up window, some code is executed to respond to that event:
+
+* code is executed to follow a link
+* code is executed to submit a form
+* code is executed to close (or hide) the window
+
+This is the essence of an **event** and **Event-Driven Programming**. As
+JavaScript programmers, we can write code to respond to user actions!
+
+Here, we have a `button` element for the user to interact with, as well as a
+`div` element for us to modify.
+
+```no-highlight
+<button id="duplicate-borg-ship">Clone Borg Ship</button>
+
+<div id="borg-fleet">
+</div>
+```
+
+The goal is to add an `img` element to the page, every time the user clicks the
+"Clone Borg Ship" button.
+
+First, we need to find the button within the page.
+
+```no-highlight
+let buttonElement = document.getElementById('duplicate-borg-ship');
+```
+
+Next, we need to add an **event listener** to the button element.
+
+```no-highlight
+buttonElement.addEventListener('click', () => {
+  let borgFleetDiv = document.getElementById('borg-fleet');
+  borgFleetDiv.innerHTML += '<img src="borg-ship.png" alt="Borg Ship">';
+});
+```
+
+The arguments to `addEventListener` are the **type** of event we want to listen
+for (`'click'` events), and a function to execute when that event is detected.
+This is the JavaScript equivalent of saying, "When a user clicks the 'Duplicate
+Borg Ship' button, perform these actions."
+
+We have added dynamic behavior to our webpage!
+
+We have defined an **anonymous function**, and given it as an argument to
+`addEventListener`. If we didn't want to use an anonymous function, our code
+would look like this:
+
+```no-highlight
+let duplicateBorgShip = () => {
+  let borgFleetDiv = document.getElementById('borg-fleet');
+  borgFleetDiv.innerHTML += '<img src="borg-ship.png" alt="Borg Ship">';
+}
+
+let buttonElement = document.getElementById('duplicate-borg-ship');
+buttonElement.addEventListener('click', duplicateBorgShip);
+```
+
+We need to define the function _before_ we reference the name of the function in
+`addEventListener`.
+
+
+### Wrap Up
+
+In this lesson, we have covered the basics of **DOM manipulation** as well has
+how to add an **event listener** to an HTML element to handle click events.
+
+
+### Resources
+
+* [JavaScript Event Reference](https://developer.mozilla.org/en-US/docs/Web/Events)

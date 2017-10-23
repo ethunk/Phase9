@@ -1,0 +1,183 @@
+### Introduction
+
+In this lesson, we will discuss variables in JavaScript.
+We will also perform some simple mathematical calculations with code.
+
+
+### Learning Goals
+
+* Perform mathematical operations in the JavaScript console
+* Store numerical values by incorporating the `let` assignment statement
+* Practice using modulo, exponentiation, increment, and decrement operations in JavaScript
+
+### Numbers in JavaScript
+
+As with every high-level programming language, JavaScript can handle crunching numbers. If you ever need to perform a quick calculation, the JavaScript console is just [a few keystrokes away](https://developers.google.com/web/tools/chrome-devtools/iterate/inspect-styles/shortcuts?hl=en#accessing-devtools), and it makes an excellent calculator.
+
+![Example of some simple math in the JavaScript console](https://s3.amazonaws.com/horizon-production/images/js-console-math.png)
+
+
+### Operations
+
+These are the mathematical operations that JavaScript gives us:
+
+| Symbol | Description    | Example  | Return Value         |
+| ------ | -------------- | -------- | -------------------- |
+|   +    | Addition       |  1 + 1   |  2                   |
+|   -    | Subtraction    |  2 - 1   |  1                   |
+|   *    | Multiplication |  3 * 4   |  12                  |
+|   /    | Division       |  10 / 5  |  2                   |
+|   %    | Remainder      |  10 % 5  |  0                   |
+|   **   | Exponentiation |  2 ** 3  |  8                   |
+|   ++   | Increment      |  x++     |  add one to x        |
+|   --   | Decrement      |  x--     |  subtract one from x |
+
+
+The addition, subtraction, multiplication, and division operations work just like you would expect them to.
+
+We will provide explanations of the other operations referenced above, since they are not as commonly seen outside of programming and math courses.
+
+
+### Storing a Value
+
+A **variable** in the JavaScript programming language _is a container for a value_. Variables give us a way to store data in a meaningful way, so that we may use the information contained within it at a later place in our code.
+
+```javascript
+let daysInAWeek = 7;
+```
+
+The above statement is known as an _assignment statement_.
+Flowing left to right, let's dissect this JavaScript code:
+
+* The `let` statement indicates that we would like to create a **new variable**.
+* Following the `let` is the **variable name**. This is the name we will use to reference the data contained within the variable.
+* On the right-hand side of the equals sign `=`, we have the **value**. This is the data we would like to store within the variable.
+
+We can imagine a variable as a _box which stores data_. We give the variable a name (`daysInAWeek`), and put a value into it, (`7`). This process is known as a **variable assignment**.
+
+A key point to take away is that we _must_ follow this left-to-right order when assigning a new variable:
+
+```javascript
+['let' keyword] [variable name] = [value];
+```
+
+If we try to swap the variable name with the value, we will get an error.
+
+```no-highlight
+> let 7 = daysInAWeek;
+=> x Uncaught SyntaxError: Unexpected number
+```
+
+If we want to know what's stored within the variable, we can use a `console.log()` statement to print out what is stored inside.
+
+```no-highlight
+console.log(daysInAWeek);
+```
+
+
+### Naming Conventions
+
+When naming variables, we should adhere to the conventions of those who came before us. **Coding Style** describes when and where we should use white space, where special characters such as commas and semicolons should go, as well as how we should format the names of our variables.
+
+The goal of a **Style Guide** is to give members of a team or a coding community guidelines to follow, so that our code is easy to read by everyone.
+
+Take a look at [Google's JavaScript Style Guide section on naming](https://google.github.io/styleguide/javascriptguide.xml?showone=Naming#Naming).
+
+> In general, use functionNamesLikeThis, variableNamesLikeThis,
+> ClassNamesLikeThis, EnumNamesLikeThis, methodNamesLikeThis,
+> CONSTANT_VALUES_LIKE_THIS, foo.namespaceNamesLikeThis.bar, and
+> filenameslikethis.js
+
+According to Google, we should use **camelCase** for our JavaScript variable names. Variables in JavaScript must start with a letter, and can contain letters, digits, underscores and dollar signs.
+
+One more important point to make when naming is to avoid using JavaScript
+**keywords** as variable names. Here is
+[a list](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords)
+of some "reserved words" used by the JavaScript language:
+
+```no-highlight
+break case catch class const continue debugger default delete do else
+export extends finally for function if import in instanceof let new
+return super switch this throw try typeof var void while with yield
+```
+
+Memorizing this list of keywords is not necessary. Typically, if we pick clear and specific names for our variables, we won't have to worry about our variable names colliding with JavaScript keywords. Also, you will get a convenient error if you attempt to use a JavaScript keyword as a variable name:
+
+```no-highlight
+> let instanceof = 42;
+x Uncaught SyntaxError: Unexpected token instanceof
+```
+
+
+### The Remainder Operator
+
+Let's discuss the **remainder operator**. It is sometimes also known as the _modulo operator_. This handy tool will give what _remains_ when performing Integer division.
+
+```no-highlight
+> 5 / 2
+=> 2.5
+
+> 5 % 2
+=> 1
+```
+
+
+#### The Exponentiation Operator
+
+<code>3<sup>5</sup></code>
+
+"Three to the fifth power." is the same as saying: `3 * 3 * 3 * 3 * 3`.
+
+If we want to express this in JavaScript, we would say:
+
+```no-highlight
+> 3 ** 5
+=> 243
+```
+
+### Incrementing a Variable
+
+Incrementing a variable (adding 1) is such a common operation in programming that many languages have a shortcut operation for this. The `++` operator (pronounced "plus-plus") allows us to do this very concisely.
+
+```no-highlight
+> let number = 5;
+> number++;
+> console.log(number);  // output is 6
+```
+
+The long-hand way of expressing this idea is by reassigning the variable:
+
+```no-highlight
+> let anotherNumber = 5;
+> anotherNumber = anotherNumber + 1;
+> console.log(anotherNumber);  // output is 6
+```
+
+Another important item to note is that the **plus-plus** operator only works on _numeric variables_.
+
+```no-highlight
+> 8++
+=> x Uncaught ReferenceError: Invalid left-hand side expression in postfix operation
+> let luckyNumber = 8;
+> luckyNumber++;
+> console.log(luckyNumber);
+=> 9
+```
+
+
+### Decrementing a Variable
+
+Subtracting one from a variable is also a very common operation. We can do this in a convenient way with the `--` ("minus-minus") operator.
+
+```no-highlight
+> let number = 5;
+> number--;
+> console.log(number);  // output is 4
+```
+
+
+### Wrap Up
+
+In this lesson, we covered many of the mathematical operations we can perform in the JavaScript language. Now that you are familiar with these operators, try using them in the JavaScript console when you need to do some quick calculations.
+
+We also covered how to assign variables, naming conventions, and performing numerical operations with variables.

@@ -1,0 +1,7 @@
+---
+title: "Troubleshooting JavaScript Code"
+type: "article"  # challenge, exercise, article, video
+description: "Learn bulletproof methods for fixing your code."
+tags: "javascript"
+ignore:
+- "troubleshooting-javascript-code.md"

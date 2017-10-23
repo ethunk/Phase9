@@ -1,0 +1,351 @@
+### Introduction
+
+Computers express themselves using ones and zeros. Humans express themselves
+using words and ideas. How do we bridge the gap between Human and Machine?
+
+
+### Learning Goals
+
+* Begin to understand the concept of abstraction.
+* Make decisions with code using **Conditional Statements**.
+* Learn the basics of **Boolean Math** and how it affects us as programmers.
+
+
+### The Tower of Digital Technology
+
+The English mathematician,
+[George Boole](https://en.wikipedia.org/wiki/George_Boole), described an
+entire branch of mathematics that deals with algebraic logic, which now bears
+his name. This branch of mathematics, Boolean Algebra, deals exclusively with
+`true` and `false` values. It is the base that all consumer-grade digital
+electronics are built upon.
+
+One level of abstraction below this realm of thought, lies the physical world.
+This is a world where boolean values are represented by the presence of voltage
+(logical `1`), or the absence of voltage (logical `0`). A billion or so
+transistors within our computers manage this layer of our physical world.
+Arrangements of transistors form logic gates. Arrangements of logic gates form
+the building blocks of the CPU (central processing unit) and RAM (random access
+memory).
+
+We can wrap these layers of abstraction with a programming language. This allows
+us to focus on the problems we would like to solve, using words and ideas,
+instead of concerning ourselves with the problems that have already been solved.
+
+By using constructs such as programming languages, we are standing on a tower of
+technology, writing commands similar to English, which allows us to control
+_digital machines_.
+
+We can separate ourselves from the details of _how_ something was implemented,
+and instead, focus on the interface which was designed for us to use.
+
+This is the power of **abstraction**.
+
+
+### Conditional Statements
+
+**Conditional Statements** give us a way to describe when something should be
+done.
+
+* If the grass is taller than 10cm, then deploy the lawnmower-bot.
+* If the doorbell button was pressed, then play a sound.
+* If the garbage can is full, then alert the waste management team.
+
+We can generalize these statements, and then make them fit a format that
+JavaScript can understand.
+
+* If [booleanStatement], then [run some code].
+
+```no-highlight
+if (booleanStatement) {
+  // run some code
+}
+```
+
+
+### Boolean Values
+
+A **boolean value** can have one of two states: on or off, one or zero, **true**
+or **false**.
+
+We can use boolean values for making choices within our code. In a way, we
+can give our the code we write basic decision making skills.
+
+```no-highlight
+let doTheThing = true;
+
+if (doTheThing) {
+  console.log('We will execute this code.');
+} else {
+  console.log('We won't execute this code unless doTheThing is false.');
+}
+```
+
+The boolean values `true` and `false` are built into the JavaScript language.
+
+
+### Letting the User Decide
+
+With the `confirm()` function, we can ask the user a question, and get their
+response.
+
+![JavaScript confirm() dialog](https://s3.amazonaws.com/horizon-production/images/javascript-confirm-friendly-bear.png)
+
+```no-highlight
+let viewBear = confirm('Would you like see the friendly Bear?');
+
+if (viewBear) {
+  console.log('ʕ •ᴥ•ʔ - Why, hello there.');
+} else {
+  console.log('OK, but you\'re missing out.');
+}
+```
+
+[Kaomoji](http://cutekaomoji.com/animals/bears/)
+
+When the user clicks 'OK', the value of `viewBear` becomes `true`. Our
+conditional statement then prints the friendly Bear to the console.
+
+If this user clicks 'Cancel', the value of `viewBear` becomes `false`. Our
+conditional statement runs the code in the `else` portion, and the user is
+robbed of the experience of seeing the friendly bear.
+
+
+### Boolean Statements and Comparison Operations
+
+Passing around `true` and `false` keywords is okay, but what if we need something
+more fine-tuned?
+
+For these conditions, we can use a **boolean statement** to determine if we have
+met a certain threshold, or if a variable is equal to a value.
+
+```
+let speed = 50;
+speed > 88;
+=> false
+```
+
+The boolean statement `speed > 88` can be interpreted as a question: "Is the
+variable `speed` greater than 88?"
+
+The evaluation of the boolean statement yields a boolean value: `true` or `false`.
+
+We have other **comparison operators** at our disposal.
+
+| Operator | Name                   | English equivalent statement     |
+| -------- | ---------------------- | -------------------------------- |
+| `x == y` | Equality               | Is x equal to y?                 |
+| `x != y` | Inequality             | Is x not equal to y?             |
+| `x > y`  | Greater than           | Is x greater than y?             |
+| `x >= y` | Greater than or equal  | Is x greater than or equal to y? |
+| `x < y`  | Less than              | Is x less than y?                |
+| `x <= y` | Less than or equal     | Is x less than or equal to y?    |
+
+
+### Truthy and Falsey Values
+
+Values and variables themselves can be evaluated to be either `true` or `false`.
+It is helpful to know the rules that JavaScript uses when evaluating "truthiness"
+and "falsiness".
+
+Here are some experiments to try to determine what values JavaScript considers
+to be `true`, and what it considers to be `false`. Some of the results might
+surprise you.
+
+#### true
+
+```no-highlight
+if (true) {
+  console.log('`true` is truthy');
+} else {
+  console.log('`true` is falsey');
+}
+```
+
+{% show_solution %}
+```no-highlight
+`true` is truthy
+```
+{% endshow_solution %}
+
+
+#### false
+
+```no-highlight
+if (false) {
+  console.log('`false` is truthy');
+} else {
+  console.log('`false` is falsey');
+}
+```
+
+{% show_solution %}
+```no-highlight
+`false` is falsey
+```
+{% endshow_solution %}
+
+
+#### undefined
+
+```no-highlight
+if (undefined) {
+  console.log('`undefined` is truthy');
+} else {
+  console.log('`undefined` is falsey');
+}
+```
+
+{% show_solution %}
+```no-highlight
+`undefined` is falsey
+```
+{% endshow_solution %}
+
+
+#### zero
+
+```no-highlight
+if (0) {
+  console.log('`0` is truthy');
+} else {
+  console.log('`0` is falsey');
+}
+```
+
+{% show_solution %}
+```no-highlight
+`0` is falsey
+```
+
+{% endshow_solution %}
+
+
+#### the empty string `''`
+
+```no-highlight
+if ('') {
+  console.log("`''` is truthy");
+} else {
+  console.log("`''` is falsey");
+}
+```
+
+{% show_solution %}
+```no-highlight
+`''` is falsey
+```
+{% endshow_solution %}
+
+
+### Evaluate Truthiness More Concisely
+
+In JavaScript, we have the logical **not** operator (aka- "The **bang** operator").
+If something is true, it becomes false, and vice versa.
+
+```no-highlight
+!true  // => false
+```
+
+We can utilize the **bang bang** operator to determine if JavaScript will consider a
+value to be true or false.
+
+```no-highlight
+let age;  // age is undefined at this point
+!!age  // => false
+
+age = 18;
+!!age  // => true
+```
+
+
+### The Rules for Truthiness in JavaScript
+
+```no-highlight
+!!undefined
+!!null
+!!NaN
+!!0
+!!''
+!!false
+
+// all evaluate to false
+```
+
+These are the only **falsey** values in the JavaScript programming language.
+**Every other value**, is considered a **truthy** value. Keep this rule in mind
+when evaluating boolean expressions.
+
+Some of these JavaScript keywords, such as `null` and `NaN` may have not yet
+been covered at this point. We will talk about them in greater detail in later
+lessons.
+
+
+### Combining Boolean Statements
+
+Occasionally, a single boolean statement is not enough to describe the situation.
+
+Perhaps we only like going for walks when it is a comfortable temperature outside.
+
+```no-highlight
+if (temperature < 80 && temperature > 60) {
+  console.log('Let\'s go for a walk!');
+}
+```
+
+The **double ampersand** `&&` indicates that both conditions have to be `true`:
+The temperature is less than 80 degrees **and** the temperature is greater than
+60 degrees.
+
+When writing a conditional statement that involves numbers, it is helpful to
+format them in such a way that they correspond to a
+[number line](https://en.wikipedia.org/wiki/Number_line),
+where lesser values are on the left, greater values are on the right, and the
+subject of our examination is in the middle.
+
+```no-highlight
+if (60 < temperature && temperature < 80) {
+  console.log('Let\'s go for a walk!');
+}
+```
+
+We can then, at a glance, see that the temperature needs to be **between**
+60 and 80 in order to execute the code within the conditional statement.
+
+The **double pipe** `||` indicates that one or both conditions need to be `true`.
+
+```no-highlight
+let sunny = false;
+let clearSkies = true;
+
+if (sunny || clearSkies) {
+  console.log('Let\'s go for a walk!');
+}
+```
+
+
+### Compound Conditional Statements
+
+What if we want to perform different actions depending on the conditions?
+
+We can use compound `if ... else if ... else` statements to handle these cases.
+
+```no-highlight
+if (40 <= temperature && temperature < 60) {
+  console.log('Better grab a jacket before going out.');
+} else if (60 <= temperature && temperature < 85) {
+  console.log('Let\'s go for a walk!');
+} else {
+  console.log('I would rather stay inside.');
+}
+```
+
+From this conditional statement, we can say that if the temperature is less than 40,
+or greater than 85, the message printed to the console will be: 'I would rather
+stay inside.'
+
+
+### Wrap Up
+
+In this lesson, we covered how to make decisions with code. This will be a very
+valuable ability in our coding career.

@@ -1,0 +1,9 @@
+---
+title: "Learn to Code with Javascript: Variables and Numbers"
+type: "article"  # challenge, exercise, article, video
+description: >
+  Explore the basics of JavaScript by assigning variables and performing
+  simple calculations.
+tags: "javascript"
+ignore:
+- "learn-to-code-with-javascript-variables-and-numbers.md"

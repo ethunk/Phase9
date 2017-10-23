@@ -1,0 +1,11 @@
+---
+title: "Learn to Code with Javascript: Getting Started"
+type: "article"  # challenge, exercise, article, video
+description: >
+  In this lesson, we will introduce you to the JavaScript programming
+  language. We will discuss the history of the language, go over some
+  simple code examples, as well as get your JavaScript development
+  environment set up.
+tags: "javascript"
+ignore:
+- "learn-to-code-with-javascript-getting-started.md"
