@@ -27,7 +27,6 @@ describe('Circle', () => {
   describe('diameter()', () => {
     it('returns the diameter of the circle', () => {
       let circle = new Circle(12);
-
       expect(circle.diameter()).toBe(24);
     });
   });
