@@ -10,7 +10,6 @@ describe('arrays', () => {
       a.splice( 1, 0, 2 );
       a.push( 2 );
       a.push( 2 );
-
       let result = removeWithoutCopy(a, 2);
 
       expect(result.length).toBe(3);
