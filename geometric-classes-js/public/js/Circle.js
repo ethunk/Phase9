@@ -1,7 +1,6 @@
 class Circle {
-  constructor(radius, x, y) {
+  constructor(radius, diameter, x, y) {
     this.radius = radius;
-    // this.diameter = radius * 2;
     this.x = x || 0;
     this.y = y || 0;
   }
@@ -18,3 +17,5 @@ class Circle {
     return (this.radius*2);
   }
 }
+
+let circle = new Circle(4, 5);

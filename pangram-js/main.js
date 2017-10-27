@@ -3,14 +3,13 @@ let isPangram = (sentence) => {
   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let sentenceLowerCase = sentence.toLowerCase();
   for (i = 0; i < alphabet.length; i++) {
-    if ((sentenceLowerCase.includes(alphabet[i])) == false) {
-      var answer = false;
-      break;
-    } else {
-      var answer = true;
+    // var answer = !sentenceLowerCase.includes(alphabet[i]);
+    // return answer;
+    if (!sentenceLowerCase.includes(alphabet[i])) {
+      return false;
     }
   }
-  return answer;
+  return true;
 };
 
 // test the isPangram() function, and print results to the console.
