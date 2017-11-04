@@ -85,7 +85,17 @@
         "Brussels Sprouts and Egg Salad with Hazelnuts"]
 
       // Write your code below. Start by typing `dishes` in your browser console to see what the array contains.
-
+        let goodDishes = [];
+        let badDishes = [];
+        dishes.forEach(function(element) {
+            if ((/Brussels Sprouts/).test(element)) {
+              goodDishes.push(element);
+              console.log(`${element}: This contains the vegatable that we need.`);
+            } else {
+              badDishes.push(element);
+              console.log(`${element}: We don't care for this dish.`);
+            }
+        });
     </script>
   </body>
 </html>
