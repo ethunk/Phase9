@@ -1,6 +1,7 @@
 require "sinatra"
 require "csv"
 require "json"
+require 'pry'
 
 set :bind, '0.0.0.0'  # bind to all interfaces
 
