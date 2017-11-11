@@ -1,9 +1,9 @@
 // Exceeds Expectation Part 1 Code Here
 
 
-var list = new GroceryList('Stop N Shop', '11/11/2017');
+let list = new GroceryList('Stop N Shop', '11/11/2017');
 
-updatePage = function() {
+let updatePage = function() {
   let mainBody = $('#main');
   let groceryData = $.ajax({
     method: 'GET',
@@ -23,15 +23,15 @@ updatePage = function() {
 $(document).ready(() => {
   updatePage();
   // Exceeds Expectation Part 2 Code Here
-  let addButton = $('input').on('click', (event) => {
+  let addButton = $( "input[type='submit']" ).on('click', (event) => {
     event.preventDefault();
     //Get the values in the fields
     let name = $('#grocery_name').val();
     let quantity = $('#grocery_quantity').val();
-    let newItem = new GroceryItem(name, quantity);
-    list.addItem(newItem);
     //Send AJAX request to POST data
     if (!(name == '' || quantity == '')) {
+      let newItem = new GroceryItem(name, quantity);
+      list.addItem(newItem);
       $.ajax({
         method: 'POST',
         url: '/groceries.json',

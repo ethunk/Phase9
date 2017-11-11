@@ -11,6 +11,30 @@
     {
       "name": "apples",
       "quantity": "5"
+    },
+    {
+      "name": "Bananas",
+      "quantity": "6"
+    },
+    {
+      "name": "apples",
+      "quantity": "4"
+    },
+    {
+      "name": "Coconut",
+      "quantity": "0"
+    },
+    {
+      "name": "test",
+      "quantity": "4"
+    },
+    {
+      "name": "wheat",
+      "quantity": "4"
+    },
+    {
+      "name": "dfadfadf",
+      "quantity": "4"
     }
   ]
 }

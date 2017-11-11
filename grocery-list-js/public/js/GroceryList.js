@@ -12,10 +12,8 @@ class GroceryList {
   }
 
   toHTML() {
-    let header;
-    let itemHTML;
-    header  = `<h1>${this.title}</h1>`;
-    itemHTML = '<ul>';
+    let header = `<h1>${this.title}</h1>`;
+    let itemHTML = '<ul>';
     for (let i = 0; i < this.items.length; i++) {
       itemHTML += `<li>${this.items[i].toString()}</li>`;
     }
